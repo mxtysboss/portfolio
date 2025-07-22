@@ -31,9 +31,21 @@ exploreButton.addEventListener("click", () => {
   const target = document.querySelector(".portfolio-projects");
   if (target) {
     gsap.to(window, {
-      duration: 1.5, // czas animacji w sekundach
-      scrollTo: { y: target, offsetY: 70 }, // przewija do elementu z offsetem 70px od góry
+      duration: 1.5,
+      scrollTo: { y: target, offsetY: 70 },
       ease: "power2.out",
     });
   }
+});
+
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+
+  setTimeout(() => {
+    loader.style.opacity = "0";
+
+    setTimeout(() => {
+      loader.style.display = "none";
+    }, 300);
+  }, 300);
 });
