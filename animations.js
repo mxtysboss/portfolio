@@ -16,7 +16,7 @@ gsap.set(cards, { opacity: 0, y: 50 });
 const tl = gsap.timeline({
   scrollTrigger: {
     trigger: ".skills",
-    start: "top center",
+    start: "top 10%",
     end: "+=1000",
     scrub: true,
     pin: true,
@@ -62,7 +62,6 @@ gsap.from(".content", {
 });
 
 window.addEventListener("load", () => {
-  // Opóźnienie 0.3s po załadowaniu strony
   gsap.delayedCall(0.3, () => {
     const tl = gsap.timeline();
 

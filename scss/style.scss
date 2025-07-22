@@ -22,6 +22,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   background-color: $black;
+  overflow-x: hidden;
 }
 .hero {
   height: 90vh;
@@ -121,46 +122,97 @@ body {
     }
   }
 }
-.skills {
-  margin: 10em auto;
-  width: 60%;
-  h2 {
-    margin: 0 auto;
-    text-align: center;
+@media screen and (max-width: 933px) {
+  .about-me {
+    flex-direction: column;
+    .content {
+      text-align: center;
+      width: 100%;
+      a {
+        margin: 0 auto;
+      }
+    }
   }
+}
+.skills {
+  margin: 5em auto;
+  width: 60%;
+
+  h2 {
+    margin-bottom: 2em;
+    text-align: center;
+    font-size: 2.5rem;
+  }
+
   .skill-cards-wrapper {
     display: flex;
-    width: 100%;
-    justify-content: space-between;
-    padding: 5em 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5em;
+    padding: 2em 0;
+
     .skill-card {
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
+      justify-content: center;
       align-items: center;
-      padding: 2em 0;
+      padding: 1.5em;
       border: $teal 1px solid;
-      flex: 0 1 calc((100% - 5em) / 6);
-      height: 7em;
+      flex: 1 1 calc(16% - 1.5em);
+      max-width: 150px;
+      min-height: 120px;
       transition: all 0.3s ease-in-out;
+      border-radius: 8px;
+      cursor: pointer;
+
       p {
-        margin: 0;
+        margin: 0.8em 0 0;
+        font-weight: 600;
+        font-size: 1rem;
+        color: $white;
+        text-align: center;
       }
+
       svg {
+        width: 40px;
+        height: 40px;
         path {
           color: $teal;
           transition: all 0.3s ease-in-out;
         }
       }
+
       &:hover {
         border-color: $white;
+
         svg path {
-          filter: brightness(1.5);
+          filter: brightness(1.8);
         }
       }
     }
   }
+
+  @media (max-width: 900px) {
+    .skill-cards-wrapper {
+      justify-content: space-around;
+      .skill-card {
+        flex: 1 1 calc(30% - 1.5em);
+        max-width: 200px;
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    .skill-cards-wrapper {
+      justify-content: center;
+      .skill-card {
+        flex: 1 1 80%;
+        max-width: 300px;
+      }
+    }
+  }
 }
+
 .portfolio-projects {
   h2 {
     text-align: center;
@@ -262,4 +314,12 @@ body {
 * {
   scrollbar-width: thin;
   scrollbar-color: $teal $black;
+}
+@media (max-width: 600px) {
+  .hero,
+  .about-me,
+  .skills,
+  .portfolio-projects {
+    width: 80%;
+  }
 }
