@@ -14,7 +14,6 @@ const cards = document.querySelectorAll(".skill-card");
 gsap.registerPlugin(ScrollTrigger);
 
 ScrollTrigger.matchMedia({
-  // Desktop (szerokość większa niż 600px)
   "(min-width: 601px)": function () {
     gsap.set(cards, { opacity: 0, y: 50 });
 
@@ -43,18 +42,17 @@ ScrollTrigger.matchMedia({
     });
   },
 
-  // Mobile (szerokość 600px i mniejsza)
   "(max-width: 600px)": function () {
     gsap.set(cards, { opacity: 0, y: 100 });
 
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: ".skills",
-        start: "top top",
+        trigger: ".skills h2",
+        start: "top 50%", 
         end: "+=100",
+        pin: ".skills", 
         scrub: true,
-        pin: true,
-        markers: false,
+        markers: true,
       },
     });
 

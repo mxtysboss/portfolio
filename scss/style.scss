@@ -17,13 +17,27 @@ $gray: #333;
   font-family: "JetBrains Mono", monospace;
   color: $white;
 }
+html {
+  overflow-x: hidden;
+}
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   background-color: $black;
   overflow-x: hidden;
+  width: 100vw;
 }
+.bg-block {
+  position: fixed;
+  top: 50%;
+  z-index: -1;
+  width: 200vw;
+  height: 300px;
+  background-color: $gray;
+  transform: rotate(-15deg) translateX(-10%);
+}
+
 .hero {
   min-height: 90vh;
   width: 60%;
@@ -137,6 +151,7 @@ body {
 .skills {
   margin: 5em auto;
   width: 60%;
+  position: relative;
 
   h2 {
     margin-bottom: 2em;
@@ -264,8 +279,8 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: $gray;
   z-index: 9999;
   display: flex;
