@@ -11,30 +11,66 @@ gsap.registerPlugin(ScrollTrigger);
 
 const cards = document.querySelectorAll(".skill-card");
 
-gsap.set(cards, { opacity: 0, y: 50 });
+gsap.registerPlugin(ScrollTrigger);
 
-const tl = gsap.timeline({
-  scrollTrigger: {
-    trigger: ".skills",
-    start: "top 10%",
-    end: "+=1000",
-    scrub: true,
-    pin: true,
-    markers: false,
+ScrollTrigger.matchMedia({
+  // Desktop (szerokość większa niż 600px)
+  "(min-width: 601px)": function () {
+    gsap.set(cards, { opacity: 0, y: 50 });
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".skills",
+        start: "top 10%",
+        end: "+=1000",
+        scrub: true,
+        pin: true,
+        markers: false,
+      },
+    });
+
+    cards.forEach((card, index) => {
+      tl.to(
+        card,
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          ease: "power2.out",
+        },
+        "+=0.3"
+      );
+    });
   },
-});
 
-cards.forEach((card, index) => {
-  tl.to(
-    card,
-    {
-      opacity: 1,
-      y: 0,
-      duration: 0.5,
-      ease: "power2.out",
-    },
-    "+=0.3"
-  );
+  // Mobile (szerokość 600px i mniejsza)
+  "(max-width: 600px)": function () {
+    gsap.set(cards, { opacity: 0, y: 100 });
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".skills",
+        start: "top top",
+        end: "+=100",
+        scrub: true,
+        pin: true,
+        markers: false,
+      },
+    });
+
+    cards.forEach((card, index) => {
+      tl.to(
+        card,
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.4,
+          ease: "power2.out",
+        },
+        "+=0.25"
+      );
+    });
+  },
 });
 
 gsap.from(".about-me img", {

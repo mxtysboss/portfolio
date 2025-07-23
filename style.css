@@ -21,7 +21,7 @@ body {
 }
 
 .hero {
-  height: 90vh;
+  min-height: 90vh;
   width: 60%;
   margin: 0 auto;
   display: flex;
