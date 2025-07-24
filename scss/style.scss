@@ -28,6 +28,10 @@ body {
   overflow-x: hidden;
   width: 100vw;
 }
+::selection {
+  background-color: $teal;
+  color: $black;
+}
 .bg-block {
   position: fixed;
   top: 50%;

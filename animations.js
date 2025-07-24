@@ -48,11 +48,11 @@ ScrollTrigger.matchMedia({
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".skills h2",
-        start: "top 50%", 
+        start: "top 50%",
         end: "+=100",
-        pin: ".skills", 
+        pin: ".skills",
         scrub: true,
-        markers: true,
+        markers: false,
       },
     });
 

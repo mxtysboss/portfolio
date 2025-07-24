@@ -25,6 +25,11 @@ body {
   width: 100vw;
 }
 
+::selection {
+  background-color: #00bfa5;
+  color: #0a0a0a;
+}
+
 .bg-block {
   position: fixed;
   top: 50%;
